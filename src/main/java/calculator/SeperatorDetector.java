@@ -28,6 +28,12 @@ public class SeperatorDetector {
             String custom = inputString.substring(start+2, end);
             String body = inputString.substring(end + 2);
 
+            if(custom.length() > 1) { // 구분자 글자수가 1글자보다 많은 경우(추후 validation으로 분리)
+                throw new IllegalArgumentException(
+                        "구분자는 한 글자만 입력할 수 있습니다. (입력된 구분자 : " + custom + ")"
+                );
+            }
+
             return new Result(custom, body);
         }
         return new Result("", inputString);
@@ -40,7 +46,7 @@ public class SeperatorDetector {
 
         for(String seperator : seperators)  {
             int idx = current.indexOf(seperator);
-            if (idx != -1) {
+            if (idx != -1) { // 2depth 추후 분리
                 found = true;
                 minIdx = Math.min(minIdx, idx);
             }

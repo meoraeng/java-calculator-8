@@ -19,19 +19,18 @@ public class Controller {
             seperators.addSeperator(result.getCustom());
         }
         inputString = result.getBody();
-
         var sepList = seperators.getSeperators();
 
         while(true) {
             int firstSeperatorIdx = SeperatorDetector.findFirstSeperatorIdx(inputString, sepList);
-            if(firstSeperatorIdx == -1){
+            if(firstSeperatorIdx == -1){ // 구분자가 모두 없는 경우 탈출(추후 validation 분리)
                 break;
             }
 
             splitStringToNumber(inputString, firstSeperatorIdx);
         }
 
-        if (!inputString.isEmpty()) {
+        if (!inputString.isEmpty()) { // 추후 validation 분리
             numberList.add(Integer.parseInt(inputString));
         }
         return calculateNumber(numberList);
