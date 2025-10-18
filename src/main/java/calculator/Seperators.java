@@ -2,13 +2,16 @@ package calculator;
 
 import java.util.ArrayList;
 
-public class Seperator {
+public class Seperators {
     private ArrayList<String> seperators = new ArrayList<>(3);
-    public Seperator() {
+    public Seperators() {
         seperators.add(",");
         seperators.add(";");
     }
     public void addSeperator(String customSeperator) {
         seperators.add(customSeperator);
+    }
+    public ArrayList<String> getSeperators() {
+        return seperators;
     }
 }
