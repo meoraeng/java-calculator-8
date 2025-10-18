@@ -12,8 +12,7 @@ class ApplicationTest extends NsTest {
     void 커스텀_구분자_사용() {
         assertSimpleTest(() -> {
             run("//;\\n1");
-//            assertThat(output()).contains("결과 : 1");
-            assertThat(output()).contains("1");
+            assertThat(output()).contains("결과 : 1");
         });
     }
 
@@ -29,7 +28,7 @@ class ApplicationTest extends NsTest {
     void 커스텀_구분자_사용2() {
         assertSimpleTest(() -> {
             run("// \\n32 222 111");
-            assertThat(output()).contains("365");
+            assertThat(output()).contains("결과 : 365");
         });
     }
 

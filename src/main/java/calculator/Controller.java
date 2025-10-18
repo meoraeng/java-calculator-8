@@ -3,14 +3,20 @@ package calculator;
 import java.util.ArrayList;
 
 public class Controller {
-    private Input input = new Input();
+    private final Output output = new Output();
     private String inputString;
     private Seperators seperators;
     private ArrayList<Integer> numberList = new ArrayList<>();
 
     public Controller(){
+        Input input = new Input();
         this.inputString = input.readInput();
         this.seperators = new Seperators();
+    }
+
+    public void run() {
+        int sum = calculate();
+        output.print(sum);
     }
 
     public int calculate() {
