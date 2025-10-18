@@ -2,7 +2,7 @@ package calculator;
 
 import java.util.ArrayList;
 
-public class SeperatorDetector {
+public class SeparatorDetector {
 
     public static class Result {
         private final String custom;
@@ -40,7 +40,7 @@ public class SeperatorDetector {
     }
 
 
-    public static int findFirstSeperatorIdx(String current, ArrayList<String> seperators) {
+    public static int findFirstSeparatorIdx(String current, ArrayList<String> seperators) {
         int minIdx = Integer.MAX_VALUE;
         boolean found = false;
 

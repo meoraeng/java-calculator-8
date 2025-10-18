@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Controller {
     private final Output output = new Output();
     private String inputString;
-    private Seperators seperators;
+    private Separators seperators;
     private ArrayList<Integer> numberList = new ArrayList<>();
 
     public Controller(){
         Input input = new Input();
         this.inputString = input.readInput();
-        this.seperators = new Seperators();
+        this.seperators = new Separators();
     }
 
     public void run() {
@@ -20,15 +20,15 @@ public class Controller {
     }
 
     public int calculate() {
-        var result = SeperatorDetector.detect(inputString);
+        var result = SeparatorDetector.detect(inputString);
         if (!result.getCustom().isEmpty()) {
             seperators.addSeperator(result.getCustom());
         }
         inputString = result.getBody();
-        var sepList = seperators.getSeperators();
+        var sepList = seperators.getSeparators();
 
         while(true) {
-            int firstSeperatorIdx = SeperatorDetector.findFirstSeperatorIdx(inputString, sepList);
+            int firstSeperatorIdx = SeparatorDetector.findFirstSeparatorIdx(inputString, sepList);
             if(firstSeperatorIdx == -1){ // 구분자가 모두 없는 경우 탈출(추후 validation 분리)
                 break;
             }
