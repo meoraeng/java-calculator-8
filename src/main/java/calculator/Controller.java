@@ -14,22 +14,20 @@ public class Controller {
     }
 
     public int calculate() {
-        SeperatorDetector seperatorDetector = new SeperatorDetector(inputString);
-        String customSeperator = seperatorDetector.findCustomSeperator();
-        if(!customSeperator.isEmpty()){
-            seperators.addSeperator(customSeperator);
+        var result = SeperatorDetector.detect(inputString);
+        if (!result.getCustom().isEmpty()) {
+            seperators.addSeperator(result.getCustom());
         }
-        ArrayList<String> seperatorList = seperators.getSeperators();
+        inputString = result.getBody();
+
+        var sepList = seperators.getSeperators();
 
         while(true) {
-            int firstSeperatorIdx = new SeperatorDetector(inputString)
-                    .findFirstSeperatorIdx(seperatorList);
+            int firstSeperatorIdx = SeperatorDetector.findFirstSeperatorIdx(inputString, sepList);
             if(firstSeperatorIdx == -1){
                 break;
             }
-            if(firstSeperatorIdx == 0 || firstSeperatorIdx == inputString.length() - 1){ // 구분자가 더이상 없을 때 마지막 문자열까지 추가
-                throw new IllegalArgumentException("잘못된 입력 형식: " + inputString);
-            }
+
             splitStringToNumber(inputString, firstSeperatorIdx);
         }
 
