@@ -6,7 +6,7 @@ import java.util.List;
 public class Numbers {
     private ArrayList<Integer> numberList;
 
-    Numbers() {
+    public Numbers() {
         this.numberList = new ArrayList<>();
     }
 
