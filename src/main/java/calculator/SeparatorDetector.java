@@ -2,7 +2,7 @@ package calculator;
 
 import java.util.ArrayList;
 
-public class SeparatorDetector {
+public class SeparatorDetector { // statelsess, 순수 기능 함수이므로 static으로 구현
 
     public static class Result {
         private final String custom;
@@ -19,7 +19,7 @@ public class SeparatorDetector {
         }
     }
 
-    public static Result detect(String inputString){
+    public static Result detectCustomSeperator(String inputString){
         int start = inputString.indexOf("//");
         int end = inputString.indexOf("\\n", start+2);
         boolean ok = start == 0 && end != -1;
@@ -36,15 +36,15 @@ public class SeparatorDetector {
 
             return new Result(custom, body);
         }
-        return new Result("", inputString);
+        return new Result("", inputString); // 커스텀이 없는 경우
     }
 
 
     public static int findFirstSeparatorIdx(String current, ArrayList<String> seperators) {
-        int minIdx = Integer.MAX_VALUE;
-        boolean found = false;
+            int minIdx = Integer.MAX_VALUE;
+            boolean found = false;
 
-        for(String seperator : seperators)  {
+            for(String seperator : seperators)  {
             int idx = current.indexOf(seperator);
             if (idx != -1) { // 2depth 추후 분리
                 found = true;

@@ -20,7 +20,7 @@ public class Controller {
     }
 
     public int calculate() {
-        var result = SeparatorDetector.detect(inputString);
+        var result = SeparatorDetector.detectCustomSeperator(inputString);
         if (!result.getCustom().isEmpty()) {
             seperators.addSeperator(result.getCustom());
         }
