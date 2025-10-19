@@ -12,18 +12,13 @@ public class TokenParser {
                     "범위를 초과했거나 유효하지 않은 값이 포함되어 있습니다 :" + token
             );
         }
-        if (parsedInt < 0) {
-            throw new IllegalArgumentException(
-                    "음수 값은 허용되지 않습니다 : " + token
-            );
-        }
+        NumberValidator.nonNegativeValidation(parsedInt, token);
+
         return parsedInt;
     }
 
-    public int nextInteger(InputCursor cursor, List<String> seperators ) {
-        String token = cursor.cutBefore(seperators);
+    public int nextInteger(InputCursor cursor, List<String> separators ) {
+        String token = cursor.cutBefore(separators);
         return parseInteger(token);
     }
-
-
 }
