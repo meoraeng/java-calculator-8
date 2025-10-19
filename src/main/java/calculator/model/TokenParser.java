@@ -20,6 +20,9 @@ public class TokenParser {
 
     public int nextInteger(InputCursor cursor, List<String> separators ) {
         String token = cursor.cutBefore(separators);
+
+        Validator.isTokenEmpty(token);
+
         return parseInteger(token);
     }
 }

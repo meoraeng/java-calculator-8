@@ -15,4 +15,12 @@ public class Validator {
             );
         }
     }
+
+    public static void isTokenEmpty(String token){
+        if (token.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "구분자를 연속해서 사용하거나 가장 앞에 사용할 수 없습니다."
+            );
+        }
+    }
 }
