@@ -1,4 +1,4 @@
-package calculator;
+package calculator.view;
 
 public class Output {
     private final String outputGuide = "결과 : ";

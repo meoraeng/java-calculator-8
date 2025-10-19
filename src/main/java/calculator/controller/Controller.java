@@ -1,4 +1,12 @@
-package calculator;
+package calculator.controller;
+
+import calculator.model.InputCursor;
+import calculator.model.Numbers;
+import calculator.model.SeparatorDetector;
+import calculator.model.Separators;
+import calculator.model.TokenParser;
+import calculator.view.Input;
+import calculator.view.Output;
 
 public class Controller {
     private final Input input;

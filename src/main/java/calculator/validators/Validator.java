@@ -1,4 +1,4 @@
-package calculator;
+package calculator.validators;
 
 public class Validator {
     public static void nonNegativeIntValidation(int parsedInt, String token){

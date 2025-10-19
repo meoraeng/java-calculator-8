@@ -1,5 +1,6 @@
-package calculator;
+package calculator.model;
 
+import calculator.validators.Validator;
 import java.util.List;
 
 public class TokenParser {

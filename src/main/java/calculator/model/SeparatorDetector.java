@@ -1,6 +1,6 @@
-package calculator;
+package calculator.model;
 
-import java.util.ArrayList;
+import calculator.validators.Validator;
 
 public class SeparatorDetector { // statelsess, 순수 기능 함수이므로 static으로 구현
 
