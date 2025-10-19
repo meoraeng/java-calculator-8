@@ -38,20 +38,4 @@ public class SeparatorDetector { // statelsess, 순수 기능 함수이므로 st
         }
         return new Result("", inputString); // 커스텀이 없는 경우
     }
-
-
-    public static int findFirstSeparatorIdx(String current, ArrayList<String> seperators) {
-            int minIdx = Integer.MAX_VALUE;
-            boolean found = false;
-
-            for(String seperator : seperators)  {
-            int idx = current.indexOf(seperator);
-            if (idx != -1) { // 2depth 추후 분리
-                found = true;
-                minIdx = Math.min(minIdx, idx);
-            }
-        }
-
-        return found ? minIdx : -1;
-    }
 }

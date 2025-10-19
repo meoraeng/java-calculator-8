@@ -3,10 +3,10 @@ package calculator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Number {
+public class Numbers {
     private ArrayList<Integer> numberList;
 
-    Number() {
+    Numbers() {
         this.numberList = new ArrayList<>();
     }
 

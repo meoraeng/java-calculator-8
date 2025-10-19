@@ -1,8 +1,9 @@
 package calculator;
 
+import java.util.List;
+
 public class InputCursor {
     private String restString;
-    private String token;
 
     public InputCursor(String restString) {
         this.restString = restString;
@@ -12,18 +13,24 @@ public class InputCursor {
         return restString == null || restString.isEmpty();
     }
 
-    public String cutBefore(String separator) {
+    public String cutBefore(List<String> separator) {
         // seperator가 1글자인지 체크하는 validation 추가
-        int idx = restString.indexOf(separator);
-
-        if(idx < 0) { // 구분자가 없는 경우 early return
-            token = restString;
+        int min = Integer.MAX_VALUE;
+        String hit = null;
+        for (String s : separator) {
+            int i = restString.indexOf(s);
+            if (i != -1 && i < min) {
+                min = i;
+                hit = s;
+            }
+        }
+        if (hit == null) {
+            String token = restString;
             restString = "";
             return token;
         }
-
-        token = restString.substring(0, idx);
-        restString = restString.substring(idx + 1);
+        String token = restString.substring(0, min);
+        restString = restString.substring(min + 1);
 
         return token;
     }
