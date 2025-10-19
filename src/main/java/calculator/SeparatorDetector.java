@@ -28,11 +28,7 @@ public class SeparatorDetector { // statelsess, 순수 기능 함수이므로 st
             String custom = inputString.substring(start+2, end);
             String body = inputString.substring(end + 2);
 
-            if(custom.length() > 1) { // 구분자 글자수가 1글자보다 많은 경우(추후 validation으로 분리)
-                throw new IllegalArgumentException(
-                        "구분자는 한 글자만 입력할 수 있습니다. (입력된 구분자 : " + custom + ")"
-                );
-            }
+            Validator.checkSeparatorLength(custom);
 
             return new Result(custom, body);
         }

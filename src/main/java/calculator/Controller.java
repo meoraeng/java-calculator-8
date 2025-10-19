@@ -30,7 +30,7 @@ public class Controller {
         var numbers = new Numbers();
 
         while(cursor.hasNext()) {
-            int number = tokenParser.nextInteger(cursor, separators.getSeparators());
+            int number = tokenParser.nextInteger(cursor, sepList);
             numbers.add(number);
         }
         return numbers.sum();

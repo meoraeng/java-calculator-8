@@ -12,7 +12,7 @@ public class TokenParser {
                     "범위를 초과했거나 유효하지 않은 값이 포함되어 있습니다 :" + token
             );
         }
-        NumberValidator.nonNegativeValidation(parsedInt, token);
+        Validator.nonNegativeIntValidation(parsedInt, token);
 
         return parsedInt;
     }
