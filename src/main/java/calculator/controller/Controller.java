@@ -33,12 +33,12 @@ public class Controller {
             separators.addSeperator(result.getCustom());
         }
 
-        var sepList = separators.getSeparators();
         var cursor = new InputCursor(result.getBody());
         var numbers = new Numbers();
 
         while(cursor.hasNext()) {
-            int number = tokenParser.nextInteger(cursor, sepList);
+            String token = separators.cutNextToken(cursor);
+            int number = tokenParser.parseInteger(token);
             numbers.add(number);
         }
         return numbers.sum();
